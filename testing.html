@@ -1,10 +1,13 @@
 <html>
 <head><title>Test</title></head>
-<link rel="stylesheet" href="/css/codemirror.css">
-<link rel="stylesheet" href="/css/the-matrix.css">
+<link rel="stylesheet" href="css/codemirror.css">
+<link rel="stylesheet" href="css/the-matrix.css">
 <style>
 body {background-color: #000000;}
 #result{color:white;font-family:'Courier'}
+#error{color:red;font-family:'Courier'}
+#out{color:green;font-family:'Courier'}
+
 </style>
 
 
@@ -16,7 +19,13 @@ body {background-color: #000000;}
   <br>
 <button onclick="evaluateCode()" >Enter</button>
 
-<div id="result"></div><div id="expected"></div>
+<div id="result"></div>
+<br />
+<br />
+<div id="out"></div>
+<br />
+<br />
+<div id="error"></div>
 </center>
 
 <script src="js/codemirror.js"></script>
@@ -30,13 +39,18 @@ body {background-color: #000000;}
 
   var jsrepl = new JSREPL({
     input: function(){},
-    output: function(data){console.log(data);},
+    output: function(data){
+      document.getElementById('out').innerHTML = data;
+    },
     result: function(data){document.getElementById('result').innerHTML = 'Result : '+data;
 
 
 
 
 
+    },
+    error: function(data){
+      document.getElementById('error').innerHTML = 'Errors : '+data;
     },
     timeout: {
       time: 30000,
