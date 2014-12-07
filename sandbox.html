@@ -1,0 +1,98 @@
+  <html>
+<head>
+    <title>pixi.js example 1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+    </style>
+    <script src="js/pixi.js"></script>
+</head>
+<body>
+    <script>
+
+    // create an new instance of a pixi stage
+    var stage = new PIXI.Stage(0x66FF99);
+
+    // create a renderer instance.
+    var renderer = PIXI.autoDetectRenderer(800, 500);
+
+    // add the renderer view element to the DOM
+    document.body.appendChild(renderer.view);
+
+    requestAnimFrame( animate );
+    // create a texture from an image path
+    var texture_mc_left = PIXI.Texture.fromImage("sprite-MC.png");
+    var texture_mc_right = PIXI.Texture.fromImage("sprite-MC-right.png");
+    // create a new Sprite using the texture
+    var mc = new PIXI.Sprite(texture_mc_left);
+    var acc = 1;
+    // center the sprites anchor point
+    mc.anchor.x = 0.5;
+    mc.anchor.y = 0.5;
+
+    // move the sprite t the center of the screen
+    mc.position.x = 200;
+    mc.position.y = 300;
+    window.addEventListener('keydown', function(event) {console.log(event.keyCode)
+    // Pressed key <-
+    if(event.keyCode == 37){
+      moveLeft()
+    }
+    // Pressed key ->
+    if(event.keyCode == 39){
+      moveRight();
+    }
+    if(event.keyCode == 39){
+      moveRight();
+    }
+    if(event.keyCode == 65){
+      tint();
+    }
+
+    },false);
+    window.setInterval(function (){
+      if(acc > 1){
+        acc -= 1;
+      }
+
+    },250)
+    function moveLeft(){
+      if(acc < 4){
+      acc += 0.5;
+    }
+      mc.scale.x = 1;
+      mc.position.x -= 10*acc;
+    }
+    function moveRight(){
+      if(acc < 4){
+        acc += 0.5;
+      }
+      mc.scale.x = -1;
+      mc.position.x += 10*acc;
+    }
+    function jump(){
+
+    }
+    function tint(){
+      mc.tint = 0x00FF00;
+      //mc.tint = 0xFF0000;
+    }
+
+
+
+    stage.addChild(mc);
+    function animate() {
+
+      requestAnimFrame( animate );
+
+      // render the stage
+      renderer.render(stage);
+    }
+
+    </script>
+
+    </body>
+</html>
