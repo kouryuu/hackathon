@@ -339,6 +339,7 @@ CodeMirror.defineMode("python", function(conf, parserConf) {
 
 CodeMirror.defineMIME("text/x-python", "python");
 code = document.getElementById('code');
-CodeMirror.fromTextArea(code, {
+var myCodeMirror = CodeMirror.fromTextArea(code, {
   lineNumbers: true
 });
+myCodeMirror.setOption("theme", "the-matrix");

@@ -1,6 +1,11 @@
 <html>
 <head><title>Test</title></head>
 <link rel="stylesheet" href="/css/codemirror.css">
+<link rel="stylesheet" href="/css/the-matrix.css">
+<style>
+body {background-color: #000000;}
+#result{color:white;font-family:'Courier'}
+</style>
 
 
 <body>
@@ -8,7 +13,8 @@
 <textarea id="code" name="code" rows="4" cols="60" >
 #This is a comment
 </textarea><br><center>
-<button onclick="evaluateCode()" >Evaluar</button>
+  <br>
+<button onclick="evaluateCode()" >Enter</button>
 
 <div id="result"></div><div id="expected"></div>
 </center>
@@ -25,11 +31,8 @@
   var jsrepl = new JSREPL({
     input: function(){},
     output: function(data){console.log(data);},
-    result: function(data){document.getElementById('result').innerHTML = 'Resultado de aplicar cuadrado(34) : '+data;
-    var paso = 'Negativa';
-    if(data == '1156')
-        paso = 'Positiva';
-    document.getElementById('expected').innerHTML = 'Evaluacion: '+paso;
+    result: function(data){document.getElementById('result').innerHTML = 'Result : '+data;
+
 
 
 
@@ -37,7 +40,7 @@
     },
     timeout: {
       time: 30000,
-      callback: function(){console.log("Se te paso el tiempo")}
+      callback: function(){console.log("Time's up")}
     }
   });
 
@@ -48,7 +51,7 @@ jsrepl.loadLanguage('python', function () {
 function evaluateCode(){
     console.log(document.getElementById("code").value);
 jsrepl.eval(myCodeMirror.getValue());
-jsrepl.eval('cuadrado(34)');
+
 }
 
 </script>
