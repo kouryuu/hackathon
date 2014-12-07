@@ -17,6 +17,7 @@
 var cssFilesToInject = [
   'styles/**/foundation.min.css',
   'styles/**/normalize.css',
+  'styles/**/fontello.css',
   'styles/**/home.css'
 ];
 

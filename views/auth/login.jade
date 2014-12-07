@@ -4,19 +4,37 @@ extends ../layout
 block body
   #main
     .row
-      .column.large-5.small-centered
+      .column.large-6
         if errors
           each error in errors
             .alert-box.alert.radius(data-alert='')
               = __(error)
-        h1.text-center Element Py
+        .logo
+          img(src="images/logo.png")
+        .welcome
+          h1.title Learning to code the fun way...
+          p Global Koding Hackathon Entry
 
 
-    .row(style="margin-top:100px")
-      .column.large-5.small-centered
-        if providers
-          h4.text-center You can also use on of these
-          .row.text-center
-            each provider in providers
-              a.button.tiny.radius(href='/auth/#{provider.slug}')= provider.name
-              | &nbsp;
+    .row
+      .column.large-6
+        //- h5.white You can also use one of these to login
+        .row
+          .column.large-6
+            a.button.tiny.radius.expand.login-btn.twitter(href='/auth/twitter')
+              span.icon-twitter-circled
+              | &nbsp; Twitter
+          .column.large-6
+            a.button.tiny.radius.expand.login-btn.github(href='/auth/github')
+              span.icon-social-github
+              | &nbsp; Github
+        .row
+          .column.large-6
+            a.button.tiny.radius.expand.login-btn.facebook(href='/auth/facebook')
+              span.icon-facebook-circled
+              | &nbsp; Facebook
+          .column.large-6
+            a.button.tiny.radius.expand.login-btn.google(href='/auth/google')
+              span.icon-gplus-circled
+              | &nbsp; Google
+
