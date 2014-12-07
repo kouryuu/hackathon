@@ -1,3 +1,4 @@
-# elementpy
+hackathon
+=========
 
-a [Sails](http://sailsjs.org) application
+A repo for the hackathon code.
