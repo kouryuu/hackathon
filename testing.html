@@ -1,55 +1,49 @@
 <html>
 <head><title>Test</title></head>
 <link rel="stylesheet" href="/css/codemirror.css">
-<script src="../codemirror.js"></script>
+
 
 <body>
 
-<textarea id="code" rows="4" cols="60"></textarea><br><center>
+<textarea id="code" name="code" rows="4" cols="60" >
+#This is a comment
+</textarea><br><center>
 <button onclick="evaluateCode()" >Evaluar</button>
-  
+
 <div id="result"></div><div id="expected"></div>
 </center>
 
-  <script >
-</script>
-  
-    <script src="jsrepl.js" id="jsrepl-script"></script>  
-<script >
- var code_box = document.getElementById('code');
-var myCodeMirror = CodeMirror.fromTextArea(code_box,{
-    stylesheet: "css/pythoncolors.css",
-    textWrapping: false,
-    lineNumbers: true,
-    styleActiveLine: true,
-    indentUnit: 4,
-    parserConfig: {'pythonVersion': 2, 'strictErrors': true}
-});
+<script src="js/codemirror.js"></script>
+<script src="pymode.js"></script>
 
- 
-  
-  var jsrepl = new JSREPL({  
+    <script src="jsrepl.js" id="jsrepl-script"></script>
+<script >
+
+
+
+
+  var jsrepl = new JSREPL({
     input: function(){},
-    output: function(data){console.log(data);},  
+    output: function(data){console.log(data);},
     result: function(data){document.getElementById('result').innerHTML = 'Resultado de aplicar cuadrado(34) : '+data;
     var paso = 'Negativa';
     if(data == '1156')
         paso = 'Positiva';
     document.getElementById('expected').innerHTML = 'Evaluacion: '+paso;
-   
-    
-    
-    
-    },  
-    timeout: {  
-      time: 30000,  
-      callback: function(){console.log("Se te paso el tiempo")}  
-    }  
-  });  
 
 
-jsrepl.loadLanguage('python', function () {  
-    console.log('Python loaded');  
+
+
+    },
+    timeout: {
+      time: 30000,
+      callback: function(){console.log("Se te paso el tiempo")}
+    }
+  });
+
+
+jsrepl.loadLanguage('python', function () {
+    console.log('Python loaded');
 });
 function evaluateCode(){
     console.log(document.getElementById("code").value);

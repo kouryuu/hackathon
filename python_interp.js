@@ -7,7 +7,7 @@ var myCodeMirror = CodeMirror.fromTextArea(code_box,{
     indentUnit: 4,
     parserConfig: {'pythonVersion': 2, 'strictErrors': true}
 });
-
+myCodeMirror.defineMIME("text/x-python", "python");
 
 
   var jsrepl = new JSREPL({
