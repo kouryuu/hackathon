@@ -1,0 +1,22 @@
+extends ../layout
+
+
+block body
+  #main
+    .row
+      .column.large-5.small-centered
+        if errors
+          each error in errors
+            .alert-box.alert.radius(data-alert='')
+              = __(error)
+        h1.text-center Element Py
+
+
+    .row(style="margin-top:100px")
+      .column.large-5.small-centered
+        if providers
+          h4.text-center You can also use on of these
+          .row.text-center
+            each provider in providers
+              a.button.tiny.radius(href='/auth/#{provider.slug}')= provider.name
+              | &nbsp;
