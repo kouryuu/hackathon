@@ -1,5 +1,16 @@
-extends ./layout
+extends ./layout_dash
 
 
 block body
   a(href="/auth/logout" role="button") Logout
+  #dashboard
+    .top-header
+      .row
+        .column.large-12
+          p this is the header
+    .main-content
+      .row
+        .column.large-6
+          p this will be the pixie area
+        .column.large-6
+          p this will be the code area
