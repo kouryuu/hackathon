@@ -15,8 +15,8 @@ The second is to make a simple class that simulates a simple weapon that can fir
 
 
 ## Screenshots
-(Main page)[imgs/d00da2aa30ce175c0243456b817c7e4c.png]
-(Gameplay)[imgs/Element Py.png]
+![Main page](imgs/d00da2aa30ce175c0243456b817c7e4c.png)
+![Gameplay](imgs/Element Py.png)
 
 ## APIs used
 NONE.
