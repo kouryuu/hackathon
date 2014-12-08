@@ -155,7 +155,9 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/**/*.jade': require('../pipeline').jsFilesToInject
+				// 'views/**/*.jade': require('../pipeline').jsFilesToInject
+				'views/layout_home.jade': require('../pipeline').jsMainToInject,
+				'views/layout_dash.jade': require('../pipeline').jsDashboardToInject
 			}
 		},
 
